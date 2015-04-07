@@ -1,0 +1,27 @@
+{
+    "name": "fz/magento-google-analytics",
+    "type": "magento-module",
+    "description": "Integrate Magento with Google Analytics",
+    "version": "1.0.0",
+    "keywords":["Magento","Google","Analytics","Marketing"],
+    "homepage":"https://github.com/fzoccara/MagentoGoogleAnalytics",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Zoccarato Francesco",
+            "email": "francesco.zoccarato@gmail.com",
+            "homepage": "http://it.linkedin.com/in/francescozoccarato",
+            "role": "developer"
+        }
+    ],
+    "repositories": [
+        {
+            "url": "https://github.com/google/google-api-php-client.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0",
+        "google/apiclient":"1.1.2"
+    }
+}
