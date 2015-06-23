@@ -1,0 +1,5 @@
+app/code/community/FZ/GoogleAnalytics/*   app/code/community/FZ/GoogleAnalytics/
+app/design/adminhtml/default/default/layout/fz/googleanalytics.xml  app/design/adminhtml/default/default/layout/fz/googleanalytics.xml
+app/design/adminhtml/default/default/template/googleanalytics/* app/design/adminhtml/default/default/template/googleanalytics/
+app/etc/modules/FZ_GoogleAnalytics.xml  app/etc/modules/FZ_GoogleAnalytics.xml
+js/fz/googleanalytics/* js/fz/googleanalytics/
