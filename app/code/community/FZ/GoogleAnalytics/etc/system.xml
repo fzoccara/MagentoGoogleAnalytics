@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <fz_all translate="label" module="core">
+            <label>Configs by fz</label>
+            <sort_order>999999999</sort_order>
+        </fz_all>
+    </tabs>
+    <sections>	
+        <fz_googleanalytics translate="label" module="fz_googleanalytics">
+            <label>Google Analytics</label>
+            <tab>fz_all</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>  
+            <groups>
+                <dashboard translate="label">
+                    <label>Admin Dashboards for Google Analytics</label> 
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store> 
+                    <fields>			             
+                        <active translate="label comment">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Use to enable/disable Realtime Google Analytics dashboard]]></comment>
+                        </active>
+                        <use_own_app translate="label comment">
+                            <label>Use your own app</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Use your own app]]></comment>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </use_own_app>
+                        <api_key translate="label comment">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>1</use_own_app>
+                            </depends>
+                        </api_key>
+                        <client_id translate="label comment">
+                            <label>Client ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>1</use_own_app>
+                            </depends>
+                        </client_id>
+                        <client_secret translate="label comment">
+                            <label>Client Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>1</use_own_app>
+                            </depends>
+                        </client_secret>
+                        <token translate="label comment">
+                            <label>Token</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>fz_googleanalytics/adminhtml_system_config_form_field_token</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>1</use_own_app>
+                            </depends>
+                        </token>
+                        <default_api_key translate="label comment">
+                            <label>API Key default</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>fz_googleanalytics/adminhtml_system_config_form_field_obfuscated</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>0</use_own_app>
+                            </depends>
+                        </default_api_key>
+                        <default_client_id translate="label comment">
+                            <label>Client ID default</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>fz_googleanalytics/adminhtml_system_config_form_field_obfuscated</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>0</use_own_app>
+                            </depends>
+                        </default_client_id>
+                        <default_client_secret translate="label comment">
+                            <label>Client Secret default</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>fz_googleanalytics/adminhtml_system_config_form_field_obfuscated</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>0</use_own_app>
+                            </depends>
+                        </default_client_secret>
+                        <default_token translate="label comment">
+                            <label>Token default</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>fz_googleanalytics/adminhtml_system_config_form_field_token</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <use_own_app>0</use_own_app>
+                            </depends>
+                        </default_token>
+                        <domain translate="label comment">
+                            <label>Domain</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>fz_googleanalytics/adminhtml_system_config_form_field_domain</frontend_model>
+                            <source_model>fz_googleanalytics/adminhtml_system_config_source_domains</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </domain>
+                        <active_tab translate="label comment">
+                            <label>Dashboard Active Tab</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>fz_googleanalytics/adminhtml_system_config_source_activetab</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </active_tab>
+                        <autoplay translate="label comment">
+                            <label>Autoplay</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Use to enable/disable Autoplay on tab selection]]></comment>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </autoplay>
+                        <refresh_timing translate="label comment">
+                            <label>Refresh Timing in seconds</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[
+Example: Calculating a Refresh Interval (<a target="_BLANK" href="https://developers.google.com/analytics/devguides/reporting/realtime/v3/devguide">dev guide</a>)<br/><br/>
+If you expect to make regular requests for real time data you should select a reasonable refresh interval based on your expected usage.<br/><br/>
+For example, a single Google Analytics view (profile) has a daily quota limit of 10,000 requests/day. In a single day, if you expect to make 6,000 queries to the Core Reporting API for a single view (profile), then you will have a quota of 4,000 requests remaining for that view (profile).<br/><br/>
+Now you decide to use the Real Time Reporting API to implement 3 real time dashboards that will run all day and query for real time data for the same view (profile). Each dashboard can make approximately 1333 queries/day (4000 queries / 3 dashboards). There are 86,400 seconds per day so that means the refresh interval for each dashboard should be greater than 65 seconds (86400 / 1333) to stay below 4,000 requests and stay within the daily limit for the view (profile).<br/><br/>
+]]></comment>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </refresh_timing>
+                    </fields>
+                </dashboard>    
+            </groups>
+        </fz_googleanalytics>
+    </sections>            
+</config>

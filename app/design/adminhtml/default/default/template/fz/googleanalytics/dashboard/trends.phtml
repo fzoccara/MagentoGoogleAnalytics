@@ -1,0 +1,41 @@
+<?php 
+/**
+ * @category   FZ
+ * @package    FZ_GoogleAnalytics
+ * @author     Francesco Zoccarato <francesco.zoccarato@gmail.com>
+ */
+?>
+<script type="text/javascript">
+    if (!window.FZ)
+    {
+        var FZ = {};
+    }
+
+    if (!window.FZ.GoogleAnalitycs)
+    {
+        FZ.GoogleAnalitycs = {};
+    }
+    
+    if (!window.FZ.GoogleAnalitycs.Trends)
+    { 
+        FZ.GoogleAnalitycs.Trends = {};
+    }
+    
+    FZ.GoogleAnalitycs.Trends.autoplay = <?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/autoplay'); ?>;
+    FZ.GoogleAnalitycs.Trends.url = "<?php echo Mage::getSingleton('adminhtml/url')->getUrl('googleanalytics/dashboard/trends'); ?>";
+    FZ.GoogleAnalitycs.Trends.errorText = "<?php echo $this->__('Error retrieving trends data'); ?>";
+
+
+    Event.observe(window, 'load', function () 
+    {
+        if (FZ.GoogleAnalitycs.Trends.autoplay) 
+        {
+            $(FZ.GoogleAnalitycs.Trends.containerId).observe('click', FZ.GoogleAnalitycs.Trends.init);
+            FZ.GoogleAnalitycs.Trends.update();
+        }
+    });
+
+</script>
+<div style="margin:20px;" id="diagram_tab_trends_container">
+    <?php echo $this->getLayout()->createBlock('page/html')->setTemplate('fz/googleanalytics/dashboard/trends/console.phtml')->toHtml() ?>
+</div>

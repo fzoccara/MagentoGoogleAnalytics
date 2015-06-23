@@ -1,0 +1,22 @@
+<?php 
+/**
+ * @category   FZ
+ * @package    FZ_GoogleAnalytics
+ * @author     Francesco Zoccarato <francesco.zoccarato@gmail.com>
+ */
+?>
+<style>
+    .movingBallG-loader{
+        -moz-animation-duration:<?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/refresh_timing'); ?>s;
+        -webkit-animation-duration:<?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/refresh_timing'); ?>s;
+        -ms-animation-duration:<?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/refresh_timing'); ?>s;
+        -o-animation-duration:<?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/refresh_timing'); ?>s;
+        animation-duration:<?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/refresh_timing'); ?>s;
+    }
+</style>
+<div id="movingBallG-loader">
+    <div class="movingBallLineG-loader">
+    </div>
+    <div class="movingBallG-loader">
+    </div>
+</div>

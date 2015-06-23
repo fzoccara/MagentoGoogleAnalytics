@@ -1,0 +1,38 @@
+<?php // 
+/**
+ * @category   FZ
+ * @package    FZ_GoogleAnalytics
+ * @author     Francesco Zoccarato <francesco.zoccarato@gmail.com>
+ */
+?>
+<script type="text/javascript">
+    if (!window.FZ)
+    {
+        var FZ = {};
+    }
+
+    if (!window.FZ.GoogleAnalitycs)
+    {
+        FZ.GoogleAnalitycs = {};
+    }
+    
+    if (!window.FZ.GoogleAnalitycs.Realtime)
+    { 
+        FZ.GoogleAnalitycs.Realtime = {};
+    }
+    
+    FZ.GoogleAnalitycs.Realtime.url = "<?php echo Mage::getSingleton('adminhtml/url')->getUrl('googleanalytics/dashboard/realtime'); ?>";
+    FZ.GoogleAnalitycs.Realtime.autoplay = <?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/autoplay'); ?>;
+    FZ.GoogleAnalitycs.Realtime.timing = <?php echo Mage::getStoreConfig('fz_googleanalytics/dashboard/refresh_timing'); ?> * 1000;
+    FZ.GoogleAnalitycs.Realtime.playText = "<?php echo $this->__('Play'); ?>";
+    FZ.GoogleAnalitycs.Realtime.pauseText = "<?php echo $this->__('Pause'); ?>";
+    FZ.GoogleAnalitycs.Realtime.errorText = "<?php echo $this->__('Error retrieving realtime data'); ?>";
+
+    Event.observe(window, 'load', function () 
+    {
+        FZ.GoogleAnalitycs.Realtime.startAutoplay();
+    });
+</script>
+<div style="margin:20px;" id="diagram_tab_realtime_container">
+    <?php echo $this->getLayout()->createBlock('page/html')->setTemplate('fz/googleanalytics/dashboard/realtime/console.phtml')->toHtml() ?>
+</div>

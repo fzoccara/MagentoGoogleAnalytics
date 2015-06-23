@@ -1,0 +1,13 @@
+<?php 
+/**
+ * @category   FZ
+ * @package    FZ_GoogleAnalytics
+ * @author     Francesco Zoccarato <francesco.zoccarato@gmail.com>
+ */
+?>
+<div id="ga-trends-console">
+    <button id="ga-trends-weekly-report" class="ga-trends-report" onclick="FZ.GoogleAnalitycs.Trends.update('weekly');return false;"><span><span><?php echo $this->__('Weekly report'); ?></span></span></button>
+    <button id="ga-trends-montly-report" class="ga-trends-report" onclick="FZ.GoogleAnalitycs.Trends.update('montly');return false;"><span><span><?php echo $this->__('Montly report'); ?></span></span></button>
+    <button id="ga-trends-yearly-report" class="ga-trends-report" onclick="FZ.GoogleAnalitycs.Trends.update('yearly');return false;"><span><span><?php echo $this->__('Yearly report'); ?></span></span></button>
+    <button id="ga-trends-reload" class="ga-trends-report" onclick="FZ.GoogleAnalitycs.Trends.update();return false;"><span><span><?php echo $this->__('Reload now'); ?></span></span></button>
+</div>

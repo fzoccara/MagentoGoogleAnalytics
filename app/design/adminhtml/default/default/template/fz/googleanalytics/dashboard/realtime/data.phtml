@@ -1,0 +1,100 @@
+<?php 
+/**
+ * @category   FZ
+ * @package    FZ_GoogleAnalytics
+ * @author     Francesco Zoccarato <francesco.zoccarato@gmail.com>
+ */
+?>
+<?php
+$analytics = $this->getAnalytics();
+
+if ($analytics):
+    $resultsRealTime = $analytics->getDatasRealtime();
+
+    $totalCount = $analytics->getCountFromDatas($resultsRealTime);
+    ?>
+    <div id="ID-overviewCounterPanel">
+        <div class="label"><?php echo $this->__('Right now'); ?></div>
+        <div>
+            <div id="overviewCounterValue"><?php echo $totalCount; ?></div>        
+        </div>
+        <div><?php echo $this->__('active users on website'); ?></div>
+    </div>
+
+    <?php 
+    $structured = $analytics->getStructuredRealtimeFromDatas($resultsRealTime);
+    if (count($structured)): ?>
+        <div id="ID-overviewSummary">
+            <?php
+            $j = 0;
+            foreach ($structured as $kpi => $structure):
+                arsort($structure);
+                if ($kpi):
+
+                    if (count($structure) <= 6):
+                        ?>
+                        <div class="summary-container">
+                            <div class="title"><?php echo $kpi; ?></div>
+                            <div class="labels">
+                                <?php
+                                $i = 0;
+                                $count = count($structure);
+                                foreach ($structure as $key => $value):
+                                    ?>
+                                    <span class="<?php echo ($i == 0) ? 'first' : ''; ?> label label-<?php echo $i++; ?> <?php echo ($i == $count) ? 'last' : ''; ?>"><em></em><span><?php echo $key; ?></span></span>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="datas">
+                                <?php
+                                $i = 0;
+                                $count = count($structure);
+                                $total = array_sum($structure);
+                                foreach ($structure as $key => $value):
+                                    $perc = number_format(($value / $total) * 100, 0);
+                                    ?>
+                                    <span class="<?php echo ($i == 0) ? 'first' : ''; ?> data data-<?php echo $i++; ?> <?php echo ($i == $count) ? 'last' : ''; ?>" style="width:<?php echo $perc; ?>%"><em></em><span><?php echo $perc; ?>%</span></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <?php
+                    else:
+                        $structure = array_slice($structure, 0, 10);
+                        ?>
+                        <div class="summary-container">
+                        <div class="title"><?php echo $kpi; ?></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="first"></th>
+                                    <th><?php echo $this->__('Active page'); ?></th>
+                                    <th class="last" colspan="2"><?php echo $this->__('Active users'); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 0;
+                                $count = count($structure);
+                                $total = array_sum($structure);
+                                foreach ($structure as $key => $value):
+                                    $i++;
+                                    $perc = number_format(($value / $total) * 100, 2);
+                                    ?>
+                                    <tr id="<?php echo strtolower($key); ?>-ID-row-<?php echo $i; ?>" class="<?php echo ($i % 2 == 0) ? 'row-odd' : 'row-even'; ?>">
+                                        <td class="first"><?php echo $i; ?>.</td>
+                                        <td class="value"><span><?php echo $key; ?></span></td>
+                                        <td class="dimension"><?php echo $value; ?></td>
+                                        <td class="percentage"><div style="width: 46px;"></div><span><?php echo $perc; ?>%</span></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        </div>
+                    <?php
+                    endif;
+                endif;
+            endforeach;
+            ?>
+        </div>
+        <?php
+    endif;
+ endif;

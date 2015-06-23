@@ -1,0 +1,40 @@
+<?php 
+/**
+ * @category   FZ
+ * @package    FZ_GoogleAnalytics
+ * @author     Francesco Zoccarato <francesco.zoccarato@gmail.com>
+ */
+?>
+<?php
+$analytics = $this->getAnalytics();
+
+if ($analytics):
+
+    $currentRange = $this->getRange('current');
+    $resultsCurrent = $analytics->getDatasByPeriods($currentRange['from'], $currentRange['to']);
+    $resultsCurrentDatas = $analytics->getStructuredTrendsFromDatas($resultsCurrent);
+    $previousRange = $this->getRange('previous');
+    $resultsPrevious = $analytics->getDatasByPeriods($previousRange['from'], $previousRange['to']);
+    $resultsPreviousDatas = $analytics->getStructuredTrendsFromDatas($resultsPrevious);
+    if (count($resultsCurrentDatas)):
+        ?>
+
+        <div id="ID-overviewtrends">
+            <?php
+            $i = 0;
+            foreach ($resultsCurrentDatas as $key => $resultsCurrentData):
+                $resultsPreviousData = $resultsPreviousDatas[$key];
+                $percentual = $this->getTrend($resultsCurrentData, $resultsPreviousData);
+                ?>
+                <div class="trend-row">
+                    <div class="label-trend"><?php echo $this->__($key) . ' <span>(' . number_format($resultsCurrentData) . ')</span>'; ?> </div>
+                    <div id="data-<?php echo $i; ?>" class="data-trend <?php echo ($percentual < 0) ? 'data-negative' : 'data-positive' ?>"><span style="width:<?php echo abs($percentual / 2); ?>%;"><?php echo ($percentual > 0) ? '+' : '' ?><?php echo abs($percentual); ?>%<?php echo ($percentual > 0) ? '' : '-' ?></span></div>
+                </div>
+                <?php
+                $i++;
+            endforeach;
+            ?>
+        </div>
+    <?php
+    endif;
+ endif; 
